@@ -1,1 +1,23 @@
-coucou
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coucou</title>
+</head>
+<body>
+    <div id="hello">
+        {{ message }}
+    </div>
+
+<script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#hello',
+        data: {
+            message: 'Bonjour le jeu de pente !'
+        }
+    })
+</script>
+
+</body>
+</html>
