@@ -1,0 +1,223 @@
+/*
+
+ normal : DeepSkyBlue, #107FC9, #60B6BF
+ coin   : RoyalBlue,   #0B108C, #469CA7
+ centre : Red,         #CF4647, #CF4647
+
+*/
+
+/*
+@font-face {
+    font-family: Comfortaa;
+    src: url(Comfortaa-Regular.ttf);
+}
+*/
+
+@font-face {
+    font-family: Orkney;
+    src: url(resources/fonts/Orkney-Light.otf);
+}
+
+
+body{
+    text-align: center;
+}
+
+#boardBackground{
+    background: url("resources/images/board.jpg") no-repeat center center;
+    background-size: cover;
+    display: inline-block;
+    border: solid #8B4513 4px;
+    padding: 0px 28px 28px 0px;
+}
+
+.board{
+    border-collapse: collapse;
+}
+
+.line{
+
+}
+
+
+/* - Cases du plateau - */
+
+.cell{
+    position: relative;
+}
+
+.normal-cell{
+    border: solid #107FC9 3px;
+    padding: 15px;
+}
+
+.border-cell{
+    padding: 14px;
+}
+
+.corner-cell-tl{
+    border-top: solid #0B108C 5px;
+    border-left: solid #0B108C 5px;
+}
+.corner-cell-tr{
+    border-top: solid #0B108C 5px;
+    border-right: solid #0B108C 5px;
+}
+.corner-cell-bl{
+    border-bottom: solid #0B108C 5px;
+    border-left: solid #0B108C 5px;
+}
+.corner-cell-br{
+    border-bottom: solid #0B108C 5px;
+    border-right: solid #0B108C 5px;
+}
+
+.center-cell-tl{
+    border-bottom: solid #CF4647 5px;
+    border-right: solid #CF4647 5px;
+    padding: 10px;
+}
+.center-cell-tr{
+    border-bottom: solid #CF4647 5px;
+    border-left: solid #CF4647 5px;
+}
+.center-cell-bl{
+    border-top: solid #CF4647 5px;
+    border-right: solid #CF4647 5px;
+}
+.center-cell-br{
+    border-top: solid #CF4647 5px;
+    border-left: solid #CF4647 5px;
+}
+
+
+/* - Pions de jeu - */
+
+.pion1{
+    position: absolute;
+    top: 17px;
+    right: 0;
+    bottom: 0;
+    left: 17px;
+
+    background: url("resources/images/blackPiece.png") no-repeat center center;
+    background-size: cover;
+    height: 25px;
+    width: 25px;
+}
+
+.pion2{
+    position: absolute;
+    top: 17px;
+    right: 0;
+    bottom: 0;
+    left: 17px;
+
+    background: url("resources/images/whitePiece.png") no-repeat center center;
+    background-size: cover;
+    height: 25px;
+    width: 25px;
+}
+
+.center-cell-tl .pion1, .center-cell-tl .pion2{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.center-cell-tr .pion1, .center-cell-tr .pion2{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 15px;
+}
+
+.center-cell-br .pion1, .center-cell-br .pion2{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    bottom: 0;
+    left: 15px;
+}
+
+.center-cell-bl .pion1, .center-cell-bl .pion2{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.corner-cell-tl .pion1, .corner-cell-tl .pion2{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    bottom: 0;
+    left: 15px;
+}
+
+.corner-cell-tr .pion1, .corner-cell-tr .pion2{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.corner-cell-br .pion1, .corner-cell-br .pion2{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 20px;
+}
+
+.corner-cell-bl .pion1, .corner-cell-bl .pion2{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 15px;
+}
+
+
+/* - Interface texte - */
+
+.mainTitle{
+    font-family: Orkney;
+    font-size: 220%;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: #707070;
+}
+
+.player{
+    font-family: Orkney;
+    letter-spacing: 2px;
+    color: #707070;
+}
+
+.player1{
+    float: left;
+}
+
+.player2{
+    float: right;
+}
+
+.playerName{
+    padding: 10px;
+    padding-bottom: 25px;
+    border-bottom: solid #959595 1px;
+}
+
+.tenailles{
+    color: #909090;
+}
+
+.score{
+    color: #656565;
+}

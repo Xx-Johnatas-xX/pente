@@ -1,23 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Coucou</title>
+    <meta charset="UTF-8">
+    <title>Pente</title>
+
+    <link rel="stylesheet" type="text/css" href="../workshop/style.css">
+
+    <script src="resources/scripts/functions.js"></script>
 </head>
 <body>
-    <div id="hello">
-        {{ message }}
+
+    <h1 class="mainTitle">Pente</h1>
+
+    <div id="boardBackground"></div>
+
+    <div class="player player1">
+        <h2 class="playerName" id="player1name">9361Lyon</h2>
+        <p class="tenailles">Tenailles : <span class="score">4</span></p>
     </div>
 
-<script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+    <div class="player player2">
+        <h2 class="playerName" id="player2name">1234Bord</h2>
+        <p class="tenailles">Tenailles : <span class="score">2</span></p>
+    </div>
 
-<script>
-    var app = new Vue({
-        el: '#hello',
-        data: {
-            message: 'Bonjour le jeu de pente !'
-        }
-    })
-</script>
+
+    <script>
+        emptyBoard();
+        displayBoard(board);
+    </script>
 
 </body>
 </html>
