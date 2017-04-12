@@ -42,3 +42,9 @@ Jeudi matin : Finalisation du jeu tous ensemble
 
 
 Jeudi après-midi : Tests tous ensemble et résolutions de problèmes
+
+
+Serveur :
+	
+	url : http://9361lyon.hopto.org/
+	ip : 2.7.156.215
