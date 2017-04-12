@@ -221,3 +221,11 @@ body{
 .score{
     color: #656565;
 }
+
+.gameTimer{
+    font-family: Orkney;
+    letter-spacing: 2px;
+    color: #656565;
+    font-size: 200%;
+    padding: 20px;
+}

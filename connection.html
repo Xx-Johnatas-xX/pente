@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pente - Connexion</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="resources/scripts/jquery-3.2.1.min.js"></script>
+    <script src="resources/scripts/functions.js"></script>
+</head>
+<body>
+
+<h1 class="mainTitle">Pente</h1>
+
+<table>
+    <tr>
+        <td><label for="playerName">Nom du joueur : </label></td>
+        <td><input name="playerName" id="playerName" type="text"></td>
+    </tr>
+    <tr>
+        <td><label for="host">Adresse du serveur : </label></td><td><input name="host" id="host" type="text"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><button id="connection">Connexion</button></td>
+    </tr>
+</table>
+
+
+<script>
+    $('#connection').click(function() {
+        var route = document.getElementById("host").value + "/connect/" + document.getElementById("playerName").value;
+
+        $.ajax({
+            dataType: "json",
+            type: 'get',
+            url: route,
+            success: function (data) {
+                // data : objet JSON renvoyé par le serveur
+                console.log(data);
+            }
+        });
+    });
+</script>
+
+<script>
+    emptyBoard();
+    displayBoard(board);
+</script>
+
+</body>
+</html>
