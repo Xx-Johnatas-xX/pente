@@ -13,27 +13,63 @@
 
     <h1 class="mainTitle">Pente</h1>
 
-    <div id="boardBackground"></div>
+    <table id="connectionForm">
+        <tr>
+            <td><label for="playerName">Nom du joueur : </label></td>
+            <td><input name="playerName" id="playerName" type="text"></td>
+        </tr>
+        <tr>
+            <td><label for="host">Adresse du serveur : </label></td><td><input name="host" id="host" type="text"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="connection">Connexion</button></td>
+        </tr>
+    </table>
 
-    <div class="player player1">
-        <h2 class="playerName" id="player1name">9361Lyon</h2>
-        <p class="tenailles">Tenailles : <span class="score">4</span></p>
-        <p class="playTimer">08</p>
+
+    <div id="game" style="display: none">
+        <div id="boardBackground"></div>
+
+        <div class="player player1">
+            <h2 class="playerName" id="player1name">9361Lyon</h2>
+            <p class="tenailles">Tenailles : <span class="score">4</span></p>
+            <p class="playTimer">08</p>
+        </div>
+
+        <div class="player player2">
+            <h2 class="playerName" id="player2name">1234Bord</h2>
+            <p class="tenailles">Tenailles : <span class="score">2</span></p>
+            <p class="playTimer"></p>
+        </div>
+
+        <div class="gameTimer">07:14</div>
     </div>
-
-    <div class="player player2">
-        <h2 class="playerName" id="player2name">1234Bord</h2>
-        <p class="tenailles">Tenailles : <span class="score">2</span></p>
-        <p class="playTimer"></p>
-    </div>
-
-    <div class="gameTimer">07:14</div>
-
 
     <script>
         emptyBoard();
         displayBoard(board);
+
+        $('#connection').click(function() {
+            var route = document.getElementById("host").value + "/connect/" + document.getElementById("playerName").value;
+
+            $.ajax({
+                dataType: "json",
+                type: 'get',
+                url: route,
+                success: function (data) {
+                    // data : objet JSON renvoyé par le serveur
+                    console.log(data);
+                    document.getElementById("connectionForm").style.display = "none";
+                    document.getElementById("game").style.display = "block";
+                }
+            });
+        });
+
+
     </script>
+
+
 
 </body>
 </html>

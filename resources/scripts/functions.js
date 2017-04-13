@@ -12,12 +12,6 @@ function emptyBoard(){
     }
 }
 
-
-function testInit(){
-
-}
-
-
 // Affichage du plateau de jeu à partir d'un array.
 function displayBoard(board) {
 
@@ -69,3 +63,4 @@ function displayBoard(board) {
 
     document.getElementById("boardBackground").innerHTML = mytable;
 }
+
