@@ -1,8 +1,12 @@
+var pause = false;
+
 function turnInterval(){
 
     window.setInterval(function() {
-        console.log(playerId);
-        turn();
+        if (!pause){
+            console.log(playerId);
+            turn();
+        }
     }, 2000);
 
 }
@@ -20,7 +24,13 @@ function  turn(){
                 // data : objet JSON renvoyé par le serveur
                 console.log(data);
 
-                document.getElementById("scorePlayer1").innerHTML = data.nbTenaillesJ1
+                displayBoard(data.tableau);
+                displayInterface(data);
+                toPlay(data.tableau);
+
+                if (data.status == 1){
+                    pause = true;
+                }
 
             },
             error: function() {
