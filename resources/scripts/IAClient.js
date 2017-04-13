@@ -220,7 +220,7 @@ function onBoard(xPos, yPos, tab){
 		if(yPos<0 || yPos>tab[0].length-1 || xPos<0 || xPos>tab.length-1) {
 			return false;
 		}
-		else
+		else{
 			return true;
 		}
 }

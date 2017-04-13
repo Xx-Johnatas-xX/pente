@@ -30,7 +30,7 @@ function  turn(){
 
                 if (data.status == 1){
                     pause = true;
-                    toPlay(data.tableau);
+                    toPlay(data.tableau, data.nbTenaillesJ1, data.nbTenaillesJ2);
                 }
 
             },

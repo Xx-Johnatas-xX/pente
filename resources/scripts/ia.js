@@ -1,6 +1,6 @@
 var numTurn = 0;
 var weStart = false;
-function toPlay(tableau){
+function toPlay(tableau, nbTenaillesJ1, nbTenaillesJ2){
     console.log(numTurn);
     if (numTurn == 0){
         console.log(tableau[9][9]);
