@@ -6,7 +6,7 @@ function premierTourIA() {
 
 function deuxiemeTourIA() {
     var tabdeuxia = tableau;
-    var tabpion = ["6.6", "6.9", "6.12", "9.6", "9.12", "12.6", "12.9", "12.12"];
+    var tabpion = [[6, 6], [6, 9], [6, 12], [9, 6], [9, 12], [12, 6], [12, 9], [12, 12]];
     var x = '';
     var y = '';
 
@@ -15,9 +15,9 @@ function deuxiemeTourIA() {
             if (tabdeuxia[i][j] == 1 && (i != 9 && j != 9)) {
                 var test = false;
                 while (test == false) {
-                    var randomcoor = '';
-                    var randomx = '';
-                    var randomy = '';
+                    var randomindex = Math.floor(Math.random() * 8);
+                    var randomx = tabpion[randomindex][0];
+                    var randomy = tabpion[randomindex][1];
                     if ((randomx == 6 && randomy == 6) || (randomx == 12 && randomy == 12)) {
                         if (i == j) {
                             test = false;
@@ -65,10 +65,10 @@ function deuxiemeTourIA() {
 }
 
 function premierTourAdversaire() {
-    var tabfirst = ["8.9", "10.9", "9.8", "9.10", "8.8", "8.10", "10.8", "10.10", "7.9", "11.9", "9.7", "9.11"];
-    var randomfirst = tabfirst[Math.floor(Math.random() * tabfirst.length)];
-    var y = randomfirst.substr(0, 1);
-    var x = randomfirst.substr(2, 1);
+    var tabfirst = [[9, 8], [9, 10], [8, 9], [10, 9], [8, 8], [10, 8], [8, 10], [10, 10], [9, 7], [9, 11], [7, 9], [11, 9]];
+    var randomfirst = Math.floor(Math.random() * 12);
+    var x = tabfirst[randomfirst][0];
+    var y = tabfirst[randomfirst][1];
 
     play(x, y);
 }
@@ -155,10 +155,10 @@ function deuxiemeTourAdversaire() {
                                     var x1 = 9;
                                     var y1 = 9;
                                     while (x1 == 9 && y1 == 9){
-                                        var possibilites = ["\"" + (i+1) + "." + (j+1) + "\"", "\"" + (i+1) + "." + (j) + "\"", "\"" + (i+1) + "." + (j-1) + "\"", "\"" + (i) + "." + (j+1) + "\"", "\"" + (i) + "." + (j-1) + "\"", "\"" + (i-1) + "." + (j+1) + "\"", "\"" + (i-1) + "." + (j) + "\"", "\"" + (i-1) + "." + (j-1) + "\""];
-                                        var randomsecond = tabsecond[Math.floor(Math.random() * tabsecond.length)];
-                                        x1 = randomsecond.substr(0, 1);
-                                        y1 = randomsecond.substr(2, 1);
+                                        var possibilites = [[(i+1), (j+1)], [(i+1), j], [(i+1), (j-1)], [i, (j+1)], [i, (j-1)], [(i-1), (j+1)], [(i-1), j], [(i-1), (j-1)]];
+                                        var randomsecond = Math.floor(Math.random() * 8);
+                                        var x1 = possibilites[randomsecond][0];
+                                        var y1 = possibilites[randomsecond][1];
                                     }
                                     x = x1;
                                     y = y1;

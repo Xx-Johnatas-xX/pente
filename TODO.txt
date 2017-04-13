@@ -1,4 +1,3 @@
-- Redéfinir les tableaux correctement dans ia.js (substr)
 - Dans ia.js mettre les bons paramètres
 - Appeler les fonctions de ia.js dans functions.js ou créer un game.js
 - Finir l'affichage
