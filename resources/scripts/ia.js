@@ -1,17 +1,23 @@
+var numTurn = 0;
+var numPlayer;
 function toPlay(tableau){
+    console.log(numTurn);
     if (numTurn == 0){
+        console.log(tableau[9][9]);
         if (tableau[9][9] == 0){
             premierTourIA();
             numTurn++;
             numPlayer = 1;
         }
         else if (tableau[9][9] == 1){
+            console.log("rrr");
             premierTourAdversaire();
             numTurn++;
             numPlayer = 2;
         }
     }
     else if(numTurn == 1){
+        console.log(numPlayer);
         if (numPlayer == 1){
             deuxiemeTourIA(tableau);
             numTurn++;
