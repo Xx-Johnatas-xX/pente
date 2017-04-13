@@ -1,0 +1,44 @@
+if adversaire commence {
+	if c'est le premier tour {
+		random parmi les cases : [8,9],[10,9],[9,8],[9,10],[8,8],[8,10],[10,8],[10,10],[7,9],[11,9],[9,7],[9,11] }
+	elseif c'est le deuxieme tour {
+		if les deux pions de l'adversaire sont côte-à-côte (vertical, horizontal ou diagonal) {
+			placer pion côte-à-côte d'un des deux pions }
+		elseif les deux pions sont alignés {
+			placer pion sur la ligne entre les deux }
+		else {
+			placer pion aligné à notre 1er (direction random) }
+	}
+	else {
+		if on a 4 pions alignés et qu'on peut poser le 5e {
+			on le pose et on win :) }
+		else {
+			if le joueur n'a pas 4 pions alignés {
+				if on ne peut pas faire de tenaille {
+					on cherche la ligne ou on a le plus de pions alignés
+					on cherche la ligne ou l'adversaire a le plus de pions alignés
+					if l'adversaire a moins de 3 pions alignés dans cette ligne {
+						on place un pion sur la ligne ou l'on a le plus de pions alignés pour la poursuivre }
+					else {
+						if les deux directions de la ligne ne sont pas bloquées {
+							on en bloque une des deux }
+						else {
+							on place un pion sur la ligne ou l'on a le plus de pions alignés pour la poursuivre }
+					}
+				}
+				else {
+					faire tenaille }
+			}
+			else {
+				on bloque la ligne }
+		}
+	}
+}
+else {
+	if c'est le premier tour
+		on place en [9,9]
+	elseif c'est le deuxieme tour
+		// TODO //
+	else
+		// TODO //
+}
