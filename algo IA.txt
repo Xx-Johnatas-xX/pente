@@ -12,6 +12,8 @@ if adversaire commence {
 	else {
 		if on a 4 pions alignés et qu'on peut poser le 5e {
 			on le pose et on win :) }
+		elseif on a 4 tenailles et on peut en faire une 5e {
+		    on la fait et on win :) }
 		else {
 			if le joueur n'a pas 4 pions alignés {
 				if on ne peut pas faire de tenaille {
