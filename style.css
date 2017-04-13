@@ -91,6 +91,7 @@ body{
 }
 
 
+
 /* - Pions de jeu - */
 
 .pion1{
@@ -184,6 +185,7 @@ body{
 }
 
 
+
 /* - Interface texte - */
 
 .mainTitle{
@@ -228,4 +230,20 @@ body{
     color: #656565;
     font-size: 200%;
     padding: 20px;
+}
+
+
+
+/* - Formulaire de connexion - */
+
+#connectionForm{
+    margin: auto;
+    text-align: right;
+    font-family: Orkney;
+    letter-spacing: 2px;
+    color: #707070;
+}
+
+#connectionForm td{
+    padding: 7px;
 }
