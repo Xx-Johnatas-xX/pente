@@ -1,7 +1,7 @@
 // Variable globale du plateau de jeu.
 var board = new Array(19);
-var numTurn = 0;
-var numPlayer = 0;
+
+
 // Initialisation du plateau vide.
 function emptyBoard(){
     for (i=0; i<19; i++){
@@ -99,30 +99,20 @@ function playerTimer(status){
 }
 */
 
-/*
-function gameTimer(){
 
-    $(document).ready(function (e) {
-        var $worked = $("#timetimer");
+function gameTimer() {
+    var timer = 600, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
-        function update() {
-            var myTime = $worked.html();
-            var ss = myTime.split(":");
-            var dt = new Date();
-            dt.setHours(0);
-            dt.setMinutes(ss[0]);
-            dt.setSeconds(ss[1]);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-            var dt2 = new Date(dt.valueOf() + 1000);
-            var temp = dt2.toTimeString().split(" ");
-            var ts = temp[0].split(":");
+        document.getElementById("gameTimer").innerHTML = minutes + ":" + seconds;
 
-            $worked.html(ts[1]+":"+ts[2]);
-            setTimeout(update, 1000);
+        if (--timer < 0) {
+            timer = 0;
         }
-
-        setTimeout(update, 1000);
-    });
-
+    }, 1000);
 }
-*/
