@@ -48,7 +48,8 @@ else {
 	if c'est le premier tour
 		on place en [9,9]
 	elseif c'est le deuxieme tour
-		// TODO //
+	    on récupère x2 et y2 les coordonnées du 2eme pion de l'adversaire
+		random parmi les cases : [7,9],[7,7],[9,7],[11,7],[11,9],[11,11],[9,11],[7,11] à condition que ||x2-xcase|| >=2 ou ||y2-ycase|| >=2
 	else
-		// TODO //
+		idem que au dessus
 }
