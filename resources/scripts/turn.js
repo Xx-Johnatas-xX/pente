@@ -26,10 +26,11 @@ function  turn(){
 
                 displayBoard(data.tableau);
                 displayInterface(data);
-                toPlay(data.tableau);
+                
 
                 if (data.status == 1){
                     pause = true;
+                    toPlay(data.tableau);
                 }
 
             },

@@ -94,6 +94,7 @@ function deuxiemeTourIA(tableau) {
             }
         }
     }
+    play(x,y);
 }
 
 function premierTourAdversaire() {
@@ -230,6 +231,7 @@ function play(x, y) {
         url: route,
         success: function (data) {
             // data : objet JSON renvoyé par le serveur
+            pause = false;
             console.log(data);
         }
     });
