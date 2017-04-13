@@ -73,6 +73,15 @@ var IAClient = {
 								aligne = false;
 								tenaille = false;
 							}
+							/*else if (tab[xPos+i*scalar][yPos+j*scalar] == 0){
+								morePiecesA = false;
+								tenaille = false;
+								aligne = false;
+								aligneA = false;
+								if (numberOfPieces > 0){
+									morePieces = false;
+								}
+							}*/
 							else{
 								morePieces = false;
 								morePiecesA = false;
@@ -132,6 +141,15 @@ var IAClient = {
 								aligne = false;
 								tenaille = false;
 							}
+							/*else if (tab[xPos+i*-scalar][yPos+j*-scalar] == 0){
+								morePiecesA = false;
+								tenaille = false;
+								aligne = false;
+								aligneA = false;
+								if (numberOfPieces > 0){
+									morePieces = false;
+								}
+							}*/
 							else{
 								morePieces = false;
 								morePiecesA = false;
@@ -176,6 +194,10 @@ var IAClient = {
 						// on a 3 pions aligné et pas bloqués
 						//solutions.push(new Array(xPos,yPos,300));
 						poids += 300;
+					}
+					if (numberOfPieces > 0){
+						// on cherche la ou on a le plus de pions pour les alignés 
+						poids += 10*numberOfPieces;
 					}
 					
 				}
