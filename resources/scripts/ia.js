@@ -1,4 +1,4 @@
-var IAClient = require('./public/IAClient');
+
 
 function premierTourIA() {
     play(9,9);
@@ -174,7 +174,7 @@ function deuxiemeTourAdversaire(tableau) {
 }
 
 function autresTours(tableau, numJoueur, nbTenaillesJ1, nbTenaillesJ2) {
-    var solutions = IAClient.solveProblem(tableau, numJoueur, nbTenaillesJ1, nbTenaillesJ2);
+    var solutions = solveProblem(tableau, numJoueur, nbTenaillesJ1, nbTenaillesJ2);
     var x = 0;
     var y = 0;
     var poids = 0;

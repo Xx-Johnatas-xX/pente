@@ -1,20 +1,19 @@
 var solutions = [];
 
-var IAClient = {
-	solveProblem: function(tab, numPlayer, nbTenaille1, nbTenaille2){
+function solveProblem(tab, numPlayer, nbTenaille1, nbTenaille2){
 		//parcour du tableau
 		for (var i =0; i<19; i++){
 			for (var j =0; j<19; j++){
 					// Test des différentes solutions
 					if (tab[i][j] == 0){
-						IAClient.isFive(i,j, tab, numPlayer, nbTenaille1, nbTenaille2);
+						isFive(i,j, tab, numPlayer, nbTenaille1, nbTenaille2);
 					}
 			}
 		}
 		return solutions;
-	},
+	}
 
-	isFive: function(xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
+function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 			var poids = 0;
 			var nbTenailleToWin = 0;
 			for(var i=0; i<=1; i++){
@@ -36,7 +35,7 @@ var IAClient = {
 					var aligne = true;
 					var bloque2 = false;
 					while(morePieces || morePiecesA || tenaille || aligneA || aligne){ // Check in the positive direction
-						if(IAClient.onBoard(xPos+i*scalar, yPos+j*scalar, tab)){ // If the next piece is on the board
+						if(onBoard(xPos+i*scalar, yPos+j*scalar, tab)){ // If the next piece is on the board
 							if(tab[xPos+i*scalar][yPos+j*scalar] == numPlayer){ // If the next piece is the same as the current player
 								numberOfPieces++;
 								scalar++;
@@ -105,7 +104,7 @@ var IAClient = {
 					scalar = 1;
 					aligneA = true;
 					while(morePieces || morePiecesA || tenaille || aligneA || aligne){ // Check in the negative direction
-						if(IAClient.onBoard(xPos+i*-scalar, yPos+j*-scalar, tab)){ // If the next piece is on the board
+						if(onBoard(xPos+i*-scalar, yPos+j*-scalar, tab)){ // If the next piece is on the board
 							if(tab[xPos+i*-scalar][yPos+j*-scalar] == numPlayer){ // If the next piece is the same as the current player
 								numberOfPieces++;
 								scalar++;
@@ -215,15 +214,13 @@ var IAClient = {
 				solutions.push(new Array(xPos,yPos,poids));
 			}
 			//return thereIsFive;
-		},
+		}
 
-		onBoard: function(xPos, yPos, tab){
+function onBoard(xPos, yPos, tab){
 		if(yPos<0 || yPos>tab[0].length-1 || xPos<0 || xPos>tab.length-1) {
 			return false;
 		}
 		else
 			return true;
 		}
-};
-
-module.exports = IAClient;	
+}
