@@ -1,5 +1,5 @@
 function toPlay(tableau){
-    if (numTurn = 0){
+    if (numTurn == 0){
         if (tableau[9][9] == 0){
             premierTourIA();
             numTurn++;
@@ -11,8 +11,8 @@ function toPlay(tableau){
             numPlayer = 2;
         }
     }
-    else if(numTurn = 1){
-        if (numPlayer = 1){
+    else if(numTurn == 1){
+        if (numPlayer == 1){
             deuxiemeTourIA(tableau);
             numTurn++;
         }
@@ -217,7 +217,7 @@ function autresTours(tableau, numJoueur, nbTenaillesJ1, nbTenaillesJ2) {
 
 function play(x, y) {
     var route = host + "/play/" + x + "/" + y + "/" + playerId;
-
+    console.log(route);
     $.ajax({
         dataType: "json",
         type: 'get',
