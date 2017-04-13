@@ -14,6 +14,14 @@ if adversaire commence {
 			on le pose et on win :) }
 		elseif on a 4 tenailles et on peut en faire une 5e {
 		    on la fait et on win :) }
+		elseif on a 3 tenailles et on peut en faire deux {
+        		    on le fait et on win :) }
+        elseif on a 2 tenailles et on peut en faire trois {
+        		    on le fait et on win :) }
+        elseif on a 1 tenailles et on peut en faire quatre {
+        		    on le fait et on win :) }
+        elseif on a 0 tenailles et on peut en faire cinq {
+        		    on le fait et on win :) }
 		else {
 			if le joueur n'a pas 4 pions alignés {
 				if on ne peut pas faire de tenaille {
