@@ -9,6 +9,7 @@
     <script src="resources/scripts/jquery-3.2.1.min.js"></script>
     <script src="resources/scripts/functions.js"></script>
     <script src="resources/scripts/ia.js"></script>
+    <script src="resources/scripts/turn.js"></script>
 </head>
 <body>
 
@@ -33,14 +34,14 @@
         <div id="boardBackground"></div>
 
         <div class="player player1">
-            <h2 class="playerName" id="player1name">9361Lyon</h2>
-            <p class="tenailles">Tenailles : <span class="score">4</span></p>
+            <h2 class="playerName" id="namePlayer1">9361Lyon</h2>
+            <p class="tenailles">Tenailles : <span class="score" id="scorePlayer1">4</span></p>
             <p class="playTimer">08</p>
         </div>
 
         <div class="player player2">
-            <h2 class="playerName" id="player2name">1234Bord</h2>
-            <p class="tenailles">Tenailles : <span class="score">2</span></p>
+            <h2 class="playerName" id="namePlayer2">1234Bord</h2>
+            <p class="tenailles">Tenailles : <span class="score" id="scorePlayer2">2</span></p>
             <p class="playTimer"></p>
         </div>
 
@@ -51,8 +52,12 @@
         emptyBoard();
         displayBoard(board);
 
+        var host;
+        var playerId;
+
         $('#connection').click(function() {
-            var route = document.getElementById("host").value + "/connect/" + document.getElementById("playerName").value;
+            host = document.getElementById("host").value;
+            var route = host + "/connect/" + document.getElementById("playerName").value;
 
             $.ajax({
                 dataType: "json",
@@ -63,10 +68,13 @@
                     console.log(data);
                     document.getElementById("connectionForm").style.display = "none";
                     document.getElementById("game").style.display = "block";
+                    playerId = data.idJoueur;
+
+                    turn();
+                    turnInterval();
                 }
             });
         });
-
 
     </script>
 

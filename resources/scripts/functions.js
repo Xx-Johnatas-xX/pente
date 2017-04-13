@@ -64,3 +64,7 @@ function displayBoard(board) {
     document.getElementById("boardBackground").innerHTML = mytable;
 }
 
+
+function displayInterface(){
+
+}
