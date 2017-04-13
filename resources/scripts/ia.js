@@ -1,24 +1,22 @@
 var numTurn = 0;
-var numPlayer;
+var weStart = false;
 function toPlay(tableau){
     console.log(numTurn);
     if (numTurn == 0){
         console.log(tableau[9][9]);
         if (tableau[9][9] == 0){
+            weStart = true;
             premierTourIA();
             numTurn++;
-            numPlayer = 1;
         }
-        else if (tableau[9][9] == 1){
-            console.log("rrr");
+        else {
             premierTourAdversaire();
             numTurn++;
-            numPlayer = 2;
         }
     }
     else if(numTurn == 1){
-        console.log(numPlayer);
-        if (numPlayer == 1){
+        console.log(weStart);
+        if (weStart){
             deuxiemeTourIA(tableau);
             numTurn++;
         }
@@ -28,7 +26,8 @@ function toPlay(tableau){
         }
     }
     else{
-        autresTours(tableau, numPlayer, nbTenaillesJ1, nbTenaillesJ2);
+        autresTours(tableau, playerNumber, nbTenaillesJ1, nbTenaillesJ2);
+        numTurn++;
     }
 }
 
@@ -39,12 +38,12 @@ function premierTourIA() {
 function deuxiemeTourIA(tableau) {
     var tabdeuxia = tableau;
     var tabpion = [[6, 6], [6, 9], [6, 12], [9, 6], [9, 12], [12, 6], [12, 9], [12, 12]];
-    var x = '';
-    var y = '';
+    var x = 0;
+    var y = 0;
 
     for (var i =0; i<19; i++) {
         for (var j = 0; j < 19; j++) {
-            if (tabdeuxia[i][j] == 1 && (i != 9 && j != 9)) {
+            if (tabdeuxia[i][j] == 0 && tabdeuxia[i][j] != playerNumber && (i != 9 && j != 9)) {
                 var test = false;
                 while (test == false) {
                     var randomindex = Math.floor(Math.random() * 8);
