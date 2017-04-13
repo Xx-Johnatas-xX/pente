@@ -65,6 +65,63 @@ function displayBoard(board) {
 }
 
 
-function displayInterface(){
+function displayInterface(data){
+
+    if (playerNumber == 1){
+        document.getElementById("namePlayer1").innerHTML = playerName;
+        document.getElementById("namePlayer2").innerHTML = "Adversaire";
+    } else if (playerNumber == 2){
+        document.getElementById("namePlayer2").innerHTML = playerName;
+        document.getElementById("namePlayer1").innerHTML = "Adversaire";
+    }
+
+    document.getElementById("scorePlayer1").innerHTML = data.nbTenaillesJ1;
+    document.getElementById("scorePlayer2").innerHTML = data.nbTenaillesJ2;
+
+
 
 }
+
+/*
+function playerTimer(status){
+
+    var i = 10;
+
+    if (playerNumber == 1 && status == 1){
+        window.setInterval(function() {
+            if (!pause){
+                document.getElementById("timer1").innerHTML = i;
+                i--;
+            }
+        }, 1000);
+    }
+}
+*/
+
+/*
+function gameTimer(){
+
+    $(document).ready(function (e) {
+        var $worked = $("#timetimer");
+
+        function update() {
+            var myTime = $worked.html();
+            var ss = myTime.split(":");
+            var dt = new Date();
+            dt.setHours(0);
+            dt.setMinutes(ss[0]);
+            dt.setSeconds(ss[1]);
+
+            var dt2 = new Date(dt.valueOf() + 1000);
+            var temp = dt2.toTimeString().split(" ");
+            var ts = temp[0].split(":");
+
+            $worked.html(ts[1]+":"+ts[2]);
+            setTimeout(update, 1000);
+        }
+
+        setTimeout(update, 1000);
+    });
+
+}
+*/

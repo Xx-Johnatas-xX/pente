@@ -29,20 +29,22 @@
         </tr>
     </table>
 
+    <div id="timetimer"></div>
+
 
     <div id="game" style="display: none">
         <div id="boardBackground"></div>
 
         <div class="player player1">
-            <h2 class="playerName" id="namePlayer1">9361Lyon</h2>
+            <h2 class="playerName" id="namePlayer1">Joueur 1</h2>
             <p class="tenailles">Tenailles : <span class="score" id="scorePlayer1">4</span></p>
-            <p class="playTimer">08</p>
+            <p class="playTimer" id="timer1"></p>
         </div>
 
         <div class="player player2">
-            <h2 class="playerName" id="namePlayer2">1234Bord</h2>
+            <h2 class="playerName" id="namePlayer2">Joueur 2</h2>
             <p class="tenailles">Tenailles : <span class="score" id="scorePlayer2">2</span></p>
-            <p class="playTimer"></p>
+            <p class="playTimer" id="timer2"></p>
         </div>
 
         <div class="gameTimer">07:14</div>
@@ -52,8 +54,12 @@
         emptyBoard();
         displayBoard(board);
 
+        //gameTimer();
+
         var host;
         var playerId;
+        var playerName;
+        var playerNumber;
 
         $('#connection').click(function() {
             host = document.getElementById("host").value;
@@ -69,6 +75,8 @@
                     document.getElementById("connectionForm").style.display = "none";
                     document.getElementById("game").style.display = "block";
                     playerId = data.idJoueur;
+                    playerName = data.nomJoueur;
+                    playerNumber = data.numJoueur;
 
                     turn();
                     turnInterval();
