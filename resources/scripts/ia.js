@@ -1,4 +1,30 @@
-
+function toPlay(tableau){
+    if (numTurn = 0){
+        if (tableau[9][9] == 0){
+            premierTourIA();
+            numTurn++;
+            numPlayer = 1;
+        }
+        else if (tableau[9][9] == 1){
+            premierTourAdversaire();
+            numTurn++;
+            numPlayer = 2;
+        }
+    }
+    else if(numTurn = 1){
+        if (numPlayer = 1){
+            deuxiemeTourIA(tableau);
+            numTurn++;
+        }
+        else{
+            deuxiemeTourAdversaire(tableau);
+            numTurn++;
+        }
+    }
+    else{
+        autresTours(tableau, numPlayer, nbTenaillesJ1, nbTenaillesJ2);
+    }
+}
 
 function premierTourIA() {
     play(9,9);

@@ -1,6 +1,7 @@
 // Variable globale du plateau de jeu.
 var board = new Array(19);
-
+var numTurn = 0;
+var numPlayer = 0;
 // Initialisation du plateau vide.
 function emptyBoard(){
     for (i=0; i<19; i++){
