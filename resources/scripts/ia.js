@@ -4,7 +4,7 @@ function premierTourIA() {
     play(9,9);
 }
 
-function deuxiemeTourIA() {
+function deuxiemeTourIA(tableau) {
     var tabdeuxia = tableau;
     var tabpion = [[6, 6], [6, 9], [6, 12], [9, 6], [9, 12], [12, 6], [12, 9], [12, 12]];
     var x = '';
@@ -73,7 +73,7 @@ function premierTourAdversaire() {
     play(x, y);
 }
 
-function deuxiemeTourAdversaire() {
+function deuxiemeTourAdversaire(tableau) {
     var x = null;
     var y = null;
 
@@ -95,7 +95,7 @@ function deuxiemeTourAdversaire() {
                         }
                     }
                     else {
-                        for (var z =8; z>j; z--){
+                        for (var zz =8; zz>j; zz--){
                             if (tabsecond[i][j] == 2) {
                                 x = i-1;
                                 y = z;
@@ -109,7 +109,7 @@ function deuxiemeTourAdversaire() {
                 }
                 else if (j == 9) {
                     if (i > 9){
-                        for (var z =10; z<i; z++){
+                        for (var zzz =10; zzz<i; zzz++){
                             if (tabsecond[i][j] == 2) {
                                 x = i;
                                 y = z+1;
@@ -121,7 +121,7 @@ function deuxiemeTourAdversaire() {
                         }
                     }
                     else {
-                        for (var z =8; z>i; z--){
+                        for (var zzzz =8; zzzz>i; zzzz--){
                             if (tabsecond[i][j] == 2) {
                                 x = i;
                                 y = z-1;
@@ -157,8 +157,8 @@ function deuxiemeTourAdversaire() {
                                     while (x1 == 9 && y1 == 9){
                                         var possibilites = [[(i+1), (j+1)], [(i+1), j], [(i+1), (j-1)], [i, (j+1)], [i, (j-1)], [(i-1), (j+1)], [(i-1), j], [(i-1), (j-1)]];
                                         var randomsecond = Math.floor(Math.random() * 8);
-                                        var x1 = possibilites[randomsecond][0];
-                                        var y1 = possibilites[randomsecond][1];
+                                        x1 = possibilites[randomsecond][0];
+                                        y1 = possibilites[randomsecond][1];
                                     }
                                     x = x1;
                                     y = y1;
@@ -173,8 +173,8 @@ function deuxiemeTourAdversaire() {
     play(x,y);
 }
 
-function autresTours() {
-    var solutions = IAClient.solveProblem(tab, numJoueur, nbTenaillesJ1, nbTenaillesJ2);
+function autresTours(tableau, numJoueur, nbTenaillesJ1, nbTenaillesJ2) {
+    var solutions = IAClient.solveProblem(tableau, numJoueur, nbTenaillesJ1, nbTenaillesJ2);
     var x = 0;
     var y = 0;
     var poids = 0;

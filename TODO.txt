@@ -1,6 +1,4 @@
-- Dans ia.js mettre les bons paramètres
 - Appeler les fonctions de ia.js dans functions.js ou créer un game.js
 - Finir l'affichage
 - Faire des tests
 - Timeout de 2s
-- 12s de tour
