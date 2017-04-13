@@ -46,8 +46,8 @@ else {
 	if c'est le premier tour
 		on place en [9,9]
 	elseif c'est le deuxieme tour
-	    on récupère x2 et y2 les coordonnées du 2eme pion de l'adversaire
-		random parmi les cases : [6,9],[6,6],[9,6],[12,6],[12,9],[12,12],[9,12],[6,12] à condition que ||x2-xcase|| >=3 ou ||y2-ycase|| >=3
+	    on récupère les coordonnées x et y du pion de l'adversaire
+		random parmi les cases : [6,9],[6,6],[9,6],[12,6],[12,9],[12,12],[9,12],[6,12] à condition que ||x-xcase|| >=3 ou ||y-ycase|| >=3
 	else
 		idem que au dessus
 }
