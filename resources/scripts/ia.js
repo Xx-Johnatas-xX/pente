@@ -37,7 +37,7 @@ function premierTourIA() {
 
 function deuxiemeTourIA(tableau) {
     var tabdeuxia = tableau;
-    var tabpion = [[6, 6], [6, 9], [6, 12], [9, 6], [9, 12], [12, 6], [12, 9], [12, 12]];
+    var tabpion = [[5, 5], [5, 9], [5, 13], [9, 5], [9, 13], [13, 5], [13, 9], [13, 13]];
     var x = 0;
     var y = 0;
 
@@ -49,7 +49,7 @@ function deuxiemeTourIA(tableau) {
                     var randomindex = Math.floor(Math.random() * 8);
                     var randomx = tabpion[randomindex][0];
                     var randomy = tabpion[randomindex][1];
-                    if ((randomx == 6 && randomy == 6) || (randomx == 12 && randomy == 12)) {
+                    if ((randomx == 5 && randomy == 5) || (randomx == 13 && randomy == 13)) {
                         if (i == j) {
                             test = false;
                         }
@@ -59,7 +59,7 @@ function deuxiemeTourIA(tableau) {
                             y = randomy;
                         }
                     }
-                    else if ((randomx == 6 && randomy == 9) || (randomx == 12 && randomy == 9)) {
+                    else if ((randomx == 5 && randomy == 9) || (randomx == 13 && randomy == 9)) {
                         if (j == 9) {
                             test = false;
                         }
@@ -69,7 +69,7 @@ function deuxiemeTourIA(tableau) {
                             y = randomy;
                         }
                     }
-                    else if ((randomx == 9 && randomy == 6) || (randomx == 9 && randomy == 12)) {
+                    else if ((randomx == 9 && randomy == 5) || (randomx == 9 && randomy == 13)) {
                         if (i == 9) {
                             test = false;
                         }
@@ -186,12 +186,12 @@ function deuxiemeTourAdversaire(tableau) {
                                 if (tabsecond[i][j] == 2) {
                                     var x1 = 9;
                                     var y1 = 9;
-                                    while (x1 == 9 && y1 == 9){
+                                    do {
                                         var possibilites = [[(i+1), (j+1)], [(i+1), j], [(i+1), (j-1)], [i, (j+1)], [i, (j-1)], [(i-1), (j+1)], [(i-1), j], [(i-1), (j-1)]];
                                         var randomsecond = Math.floor(Math.random() * 8);
                                         x1 = possibilites[randomsecond][0];
                                         y1 = possibilites[randomsecond][1];
-                                    }
+                                    } while (x1 == 9 && y1 == 9);
                                     x = x1;
                                     y = y1;
                                 }
@@ -218,7 +218,12 @@ function autresTours(tableau, numJoueur, nbTenaillesJ1, nbTenaillesJ2) {
             y = solutions[i][1];
         }
     }
-    play(x,y);
+    if (x == null || y == null) {
+        randomsecurity(tableau);
+    }
+    else {
+        play(x,y);
+    }
 }
 
 function play(x, y) {
@@ -249,4 +254,16 @@ function diagalign(i, j) {
     else {
         return false;
     }
+}
+
+function randomsecurity(tableau) {
+    var cbontupeurandom = false;
+    while (cbontupeurandom == false) {
+        var x = Math.floor(Math.random() * 19);
+        var y = Math.floor(Math.random() * 19);
+        if (tableau[x][y] == 0) {
+            cbontupeurandom = true;
+        }
+    }
+    play(x, y);
 }

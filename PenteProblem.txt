@@ -1,9 +1,0 @@
-1- 4 pions alliés alignés et possibilité d'en mettre un 5ème (victoire direct)
-2- 4 pairs adverse déjà mangés et possibilité dans mangé une 5ème (victoire direct)
-3- 4 pions adverses alignés et possibilité d'en mettre un 5ème (loose direct)
-4- 4 pairs alliés déjà mangés et possibilité dans mangé une 5ème (loose direct)
-5- possibilité de manger une parie
-6- possibilité de se faire manger une paire
-7- possibilité d'aligner des pions
-8- possibilité que l'adversaire aligne des pions
-9- random ?
