@@ -232,6 +232,14 @@ body{
     padding: 20px;
 }
 
+#gameOver{
+    font-family: Orkney;
+    letter-spacing: 2px;
+    color: #CF4647;
+    font-size: 200%;
+    padding: 20px;
+}
+
 
 
 /* - Formulaire de connexion - */

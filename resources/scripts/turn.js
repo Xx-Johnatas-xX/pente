@@ -26,6 +26,11 @@ function  turn(){
 
                 displayBoard(data.tableau);
                 displayInterface(data);
+
+                if (data.finPartie){
+                    document.getElementById("gameOver").innerHTML = data.detailFinPartie;
+                    document.getElementById("gameOver").style.display = "block";
+                }
                 
 
                 if (data.status == 1){
