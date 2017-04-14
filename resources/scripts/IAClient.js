@@ -2,6 +2,7 @@ var solutions = [];
 
 function solveProblem(tab, numPlayer, nbTenaille1, nbTenaille2){
 		//parcour du tableau
+		solutions = [];
 		for (var i =0; i<19; i++){
 			for (var j =0; j<19; j++){
 					// Test des différentes solutions

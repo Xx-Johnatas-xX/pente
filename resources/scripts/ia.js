@@ -106,8 +106,8 @@ function premierTourAdversaire() {
 }
 
 function deuxiemeTourAdversaire(tableau) {
-    var x = null;
-    var y = null;
+    var x = 0;
+    var y = 0;
 
     var tabsecond = tableau;
     for (var i =0; i<19; i++){
@@ -121,7 +121,7 @@ function deuxiemeTourAdversaire(tableau) {
                                 y = z;
                             }
                         }
-                        if (x == null) {
+                        if (x == 0) {
                             x = 9;
                             y = 10;
                         }
@@ -133,7 +133,7 @@ function deuxiemeTourAdversaire(tableau) {
                                 y = z;
                             }
                         }
-                        if (x == null) {
+                        if (x == 0) {
                             x = 9;
                             y = 8;
                         }
@@ -147,7 +147,7 @@ function deuxiemeTourAdversaire(tableau) {
                                 y = z+1;
                             }
                         }
-                        if (x == null) {
+                        if (x == 0) {
                             x = 10;
                             y = 9;
                         }
@@ -159,7 +159,7 @@ function deuxiemeTourAdversaire(tableau) {
                                 y = z-1;
                             }
                         }
-                        if (x == null) {
+                        if (x == 0) {
                             x = 8;
                             y = 9;
                         }
@@ -232,6 +232,9 @@ function play(x, y) {
             // data : objet JSON renvoyé par le serveur
             pause = false;
             console.log(data);
+        },
+        error: function() {
+                console.log("Erreur");
         }
     });
 }
