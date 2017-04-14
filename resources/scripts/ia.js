@@ -239,7 +239,10 @@ function play(x, y) {
             console.log(data);
         },
         error: function() {
-                console.log("Erreur");
+            console.log("Erreur");
+            var x = Math.floor(Math.random() * 19);
+            var y = Math.floor(Math.random() * 19);
+            play(x,y);
         }
     });
 }
