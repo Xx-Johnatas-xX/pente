@@ -7,7 +7,7 @@ function turnInterval(){
             console.log(playerId);
             turn();
         }
-    }, 500);
+    }, 2000);
 
 }
 
