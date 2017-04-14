@@ -17,6 +17,7 @@ function solveProblem(tab, numPlayer, nbTenaille1, nbTenaille2){
 function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 			var poids = 0;
 			var nbTenailleToWin = 0;
+			var nbTenailleToLoose = 0;
 			for(var i=0; i<=1; i++){
 				for(var j=-1; j<=1; j++){ // Generate <i,j> vectors for each non-negative direction
 					if(i===0 && j===0) // Skip the vector <0,0>
@@ -27,19 +28,23 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 					var numberOfPieces = 0;
 					var numberOfPiecesA = 0;
 					var numberOfPiecesTenaille = 0;
+					var numberOfPiecesTenailleA = 0;
 					var nbTenaille = 0;
+					var nbTenailleA = 0;
 					var morePieces = true;
 					var morePiecesA = true;
 					var tenaille = true;
+					var tenailleA = true;
 					var aligneA = true;
 					var bloque = false;
 					var aligne = true;
 					var bloque2 = false;
-					while(morePieces || morePiecesA || tenaille || aligneA || aligne){ // Check in the positive direction
+					while(morePieces || morePiecesA || tenaille || aligneA || aligne || tenailleA){ // Check in the positive direction
 						if(onBoard(xPos+i*scalar, yPos+j*scalar, tab)){ // If the next piece is on the board
 							if(tab[xPos+i*scalar][yPos+j*scalar] == numPlayer){ // If the next piece is the same as the current player
 								numberOfPieces++;
 								scalar++;
+								numberOfPiecesTenailleA++;
 								morePiecesA = false;
 								if (numberOfPiecesTenaille == 2)
 								{
@@ -58,6 +63,16 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 								numberOfPiecesTenaille++;
 								scalar++;
 								morePieces = false;
+								if (numberOfPiecesTenailleA == 2)
+								{
+									nbTenailleA++;
+									aligneA = false;
+									aligne = false;
+								}
+								else{
+									aligneA = false;
+									aligne = false;
+								}
 							}
 							else if (tab[xPos+i*scalar][yPos+j*scalar] == 0 && numberOfPiecesA == 3 && morePiecesA){
 								// 3 pions alignés et pas bloqué
@@ -65,6 +80,7 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 								morePiecesA = false;
 								aligneA = false;
 								tenaille = false;
+								tenailleA = false;
 							}
 							else if (tab[xPos+i*scalar][yPos+j*scalar] == 0 && numberOfPieces == 3 && morePieces){
 								// 3 pions alignés et pas bloqué
@@ -72,6 +88,7 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 								morePieces = false;
 								aligne = false;
 								tenaille = false;
+								tenailleA = false;
 							}
 							/*else if (tab[xPos+i*scalar][yPos+j*scalar] == 0){
 								morePiecesA = false;
@@ -88,6 +105,7 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 								tenaille = false;
 								aligneA = false;
 								aligne = false;
+								tenailleA = false;
 							}
 						}
 						else{
@@ -96,20 +114,24 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 							tenaille = false;
 							aligneA = false;
 							aligne = false;
+							tenailleA = false;
 						}
 					}
 					morePieces = true;
 					morePiecesA = true;
 					numberOfPiecesTenaille = 0;
+					numberOfPiecesTenailleA = 0;
 					tenaille = true;
+					tenailleA = true;
 					scalar = 1;
 					aligneA = true;
-					while(morePieces || morePiecesA || tenaille || aligneA || aligne){ // Check in the negative direction
+					while(morePieces || morePiecesA || tenaille || aligneA || aligne || tenailleA){ // Check in the negative direction
 						if(onBoard(xPos+i*-scalar, yPos+j*-scalar, tab)){ // If the next piece is on the board
 							if(tab[xPos+i*-scalar][yPos+j*-scalar] == numPlayer){ // If the next piece is the same as the current player
 								numberOfPieces++;
 								scalar++;
 								morePiecesA = false;
+								numberOfPiecesTenailleA++;
 								if (numberOfPiecesTenaille == 2)
 								{
 									nbTenaille++;
@@ -127,6 +149,17 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 								numberOfPiecesTenaille++;
 								scalar++;
 								morePieces = false;
+								tenailleA = false;
+								if (numberOfPiecesTenailleA == 2)
+								{
+									nbTenailleA++;
+									aligneA = false;
+									aligne = false;
+								}
+								else{
+									aligneA = false;
+									aligne = false;
+								}
 							}
 							else if (numberOfPiecesA == 3 &&tab[xPos+i*-scalar][yPos+j*-scalar] == 0 && morePiecesA){
 								// 3 pions alignés et pas bloqué
@@ -134,12 +167,14 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 								morePiecesA = false;
 								aligneA = false;
 								tenaille = false;
+								tenailleA = false;
 							}else if (numberOfPieces == 3 &&tab[xPos+i*-scalar][yPos+j*-scalar] == 0 && morePieces){
 								// 3 pions alignés et pas bloqué
 								bloque2 = true;
 								morePieces = false;
 								aligne = false;
 								tenaille = false;
+								tenailleA = false;
 							}
 							/*else if (tab[xPos+i*-scalar][yPos+j*-scalar] == 0){
 								morePiecesA = false;
@@ -156,6 +191,7 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 								tenaille = false;
 								aligneA = false;
 								aligne = false;
+								tenailleA = false;
 							}
 						}
 						else{
@@ -164,6 +200,7 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 							tenaille = false;
 							aligneA = false;
 							aligne = false;
+							tenailleA = false;
 						}
 
 					}
@@ -185,6 +222,12 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 						nbTenailleToWin += nbTenaille;
 						poids += 500*nbTenaille;
 					}
+					if (nbTenailleA > 0) {
+						//Je peux faire une tenaille
+						//solutions.push(new Array(xPos,yPos,500*nbTenaille));
+						nbTenailleToLoose += nbTenailleA;
+						poids -= 500*nbTenailleA;
+					}
 					if (bloque){
 						// advairssaire 3 pions aligné et pas bloqués
 						//solutions.push(new Array(xPos,yPos,400));
@@ -205,12 +248,17 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 			if (poids > 0){
 				if (numPlayer == 1){
 				 	nbTenailleToWin += nbTenaille1;
+				 	nbTenailleToLoose += nbTenaille2;
 				}
 				else {
 					nbTenailleToWin += nbTenaille2;
+					nbTenailleToLoose += nbTenaille1;
 				}
 				if (nbTenailleToWin >= 5) {
 					poids += 5000;
+				}
+				if (nbTenailleToLoose >= 5) {
+					poids -= 5000;
 				}
 				solutions.push(new Array(xPos,yPos,poids));
 			}
