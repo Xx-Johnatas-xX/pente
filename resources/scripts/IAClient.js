@@ -207,14 +207,14 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 					if (numberOfPieces==4){
 						// Je peux win direct avec une pente
 						//solutions.push(new Array(xPos,yPos,1000));
-						poids += 10000;
+						poids += 200000;
 						//solutions.push(1);
 						//return true;
 					}
 					if (numberOfPiecesA==4){
 						//Il peut win direct avec une pente
 						//solutions.push(new Array(xPos,yPos,800));
-						poids += 5000;
+						poids += 100000;
 					}
 					if (nbTenaille > 0) {
 						//Je peux faire une tenaille
@@ -226,7 +226,7 @@ function isFive (xPos, yPos, tab, numPlayer, nbTenaille1, nbTenaille2){
 						//Je peux faire une tenaille
 						//solutions.push(new Array(xPos,yPos,500*nbTenaille));
 						nbTenailleToLoose += nbTenailleA;
-						poids -= 500*nbTenailleA;
+						poids -= 800*nbTenailleA;
 					}
 					if (bloque){
 						// advairssaire 3 pions aligné et pas bloqués
